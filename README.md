@@ -1,12 +1,14 @@
+<img src="https://user-images.githubusercontent.com/61124602/213936128-42841e13-faa1-4f6d-b2b6-e3324e64d5c1.png">
+
 # 💬 Sobre
 Projeto em andamento que busca criar sistema de inserção de funcionarios usando como front-end:angular com primeng e
 back-end:node com express e mysql
 
 <b>Features:</b>
--Toolbar
+- Toolbar
   - Menu Sidebar
   - Switch para mudar o tema
--Sidebaar
+- Sidebar
   - Home
   - Funcionários 
   - Area de teste
@@ -22,7 +24,7 @@ back-end:node com express e mysql
 - Cargos (Ainda em desenvolvimento)
   - Inserir Cargo
   - Deletar Cargo
-- Resumo
+- Resumo (em desenvolvimento)
   - Irá mostrar um gráfico de pizza de funcionarios e cargos
 # 💾 Instalação
 - Necessario Node
