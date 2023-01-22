@@ -1,0 +1,104 @@
+
+<br />
+<button
+  pButton
+  pRipple
+  type="button"
+  label="Novo"
+  icon="pi pi-plus-circle"
+  class="p-button-success"
+  [style]="{ 'margin-left': '2rem' }"
+  (click)="dialogCriarCargo()"
+></button>
+<p-divider></p-divider>
+
+<p-dialog
+  [(visible)]="criarCargoDialog"
+  [style]="{ width: '450px' }"
+  header="Criar Cargo Novo"
+  [modal]="true"
+  styleClass="p-fluid"
+>
+  <ng-template pTemplate="content" [formGroup]="cargoForm">
+    <!-- <img [src]="'assets/showcase/images/demo/product/' > -->
+    <div class="field">
+      <label for="name">Insira o nome do cargo</label>
+      <input
+        style="text-transform: uppercase"
+        type="text"
+        formControlName="nome_cargo"
+        pInputText
+        id="nome_cargo"
+        required
+        autofocus
+        minlength="5"
+      />
+      <small class="p-error" *ngIf="submitted && !cargos.nome_cargo"
+        >Campo Obrigatorio</small
+      >
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      pRipple
+      label="Cancelar"
+      icon="pi pi-times"
+      class="p-button-text"
+      (click)="hideDialog()"
+    ></button>
+    <button
+      pButton
+      pRipple
+      label="Criar"
+      icon="pi pi-plus-circle"
+      class="p-button-text"
+      (click)="inserirCargo()"
+    ></button>
+  </ng-template>
+</p-dialog>
+
+
+<p-table
+  [value]="cargos"
+  [tableStyle]="{ 'min-width': '10rem' }"
+  #dt1
+  [globalFilterFields]="['nome_completo']"
+  
+>
+  <!-- <ng-template pTemplate="caption">
+    <div class="flex">
+      <span class="p-input-icon-left ml-auto">
+        <i class="pi pi-search"></i>
+        <input
+          pInputText
+          type="text"
+          (input)="dt1.filterGlobal(getEventValue($event), 'contains')"
+          placeholder="Procurar Funcionário"
+        />
+      </span>
+    </div>
+  </ng-template> -->
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th>
+        ID do cargo
+      </th>
+      <th>
+        Nome do cargo
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-cargo>
+    <tr>
+      <td>
+        {{ cargo.id }}
+      </td>
+      <td>
+        {{ cargo.nome_cargo }}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

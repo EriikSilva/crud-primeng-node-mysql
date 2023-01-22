@@ -1,0 +1,250 @@
+<br />
+<!-- TOASTS -->
+<p-toast position="top-right" key="inserir"></p-toast>
+<p-toast position="top-right" key="error"></p-toast>
+<p-toast position="top-right" key="funcionarioDeletado"></p-toast>
+<p-toast position="top-right" key="funcionarioAtualizado"></p-toast>
+
+<button
+  pButton
+  pRipple
+  type="button"
+  label="Novo"
+  icon="pi pi-plus-circle"
+  class="p-button-success"
+  [style]="{ 'margin-left': '2rem' }"
+  (click)="dialogCriar()"
+></button>
+<p-divider></p-divider>
+
+<!-- DIALOGS -->
+<!-- DIALOG DE CRIAÇÃO -->
+<p-dialog
+  [(visible)]="criarFuncionariosDialog"
+  [style]="{ width: '500px', height: '450px' }"
+  header="Criar Funcionário"
+  [modal]="true"
+  styleClass="p-fluid"
+>
+  <ng-template pTemplate="content" [formGroup]="funcionarioForm">
+    <label for="name">Cargo</label>
+    <p-dropdown
+      [options]="cargos"
+      [(ngModel)]="cargoSelecionado"
+      [virtualScroll]="true"
+      placeholder="Selecione um cargo"
+      optionLabel="nome_cargo"
+      [formControlName]="'cargo_id'"
+    ></p-dropdown>
+
+    <p-divider></p-divider>
+
+    <div class="field">
+      <label for="name">Nome Completo</label>
+      <input
+        style="text-transform: uppercase"
+        type="text"
+        formControlName="nome_completo"
+        pInputText
+        id="nome_completo"
+        required
+        autofocus
+        minlength="5"
+      />
+      <small class="p-error" *ngIf="submitted && !funcionarios.nome_completo"
+        >Campo Obrigatorio</small
+      >
+    </div>
+
+    <!-- <small class="p-error" *ngIf="submitted && !cargos.nome_cargo"
+        >Campo Obrigatorio</small
+      > -->
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      pRipple
+      label="Cancelar"
+      icon="pi pi-times"
+      class="p-button-text"
+      (click)="hideDialog()"
+    ></button>
+    <button
+      pButton
+      pRipple
+      label="Criar"
+      icon="pi pi-plus-circle"
+      class="p-button-text"
+      (click)="inserirFuncionario(cargoSelecionado)"
+    ></button>
+  </ng-template>
+</p-dialog>
+<!-- DIALOG DE ATUALIZAÇÃO -->
+<p-dialog
+  [(visible)]="atualizarFuncionarioDialog"
+  [style]="{ width: '450px' }"
+  header="Atualizar Funcionário"
+  [modal]="true"
+  styleClass="p-fluid"
+>
+  <ng-template pTemplate="content" [formGroup]="funcionarioForm">
+    <label for="name">Cargo</label>
+    <p-dropdown
+    [options]="cargos"
+    [(ngModel)]="cargoSelecionado"
+    [virtualScroll]="true"
+    placeholder="Selecione um cargo"
+    optionLabel="nome_cargo"
+    [formControlName]="'cargo_id'"
+  ></p-dropdown>
+
+  <p-divider></p-divider>
+
+    <div class="field">
+      <label for="name">Nome Completo</label>
+      <input
+        style="text-transform: uppercase"
+        type="text"
+        formControlName="nome_completo"
+        pInputText
+        id="nome_completo"
+        required
+        autofocus
+      />
+      <small class="p-error" *ngIf="submitted && !funcionarios.nome_completo"
+        >Campo Obrigatorio</small
+      >
+    </div>
+
+ 
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      pRipple
+      label="Cancelar"
+      icon="pi pi-times"
+      class="p-button-text"
+      (click)="hideDialog()"
+    ></button>
+    <button
+      pButton
+      pRipple
+      label="Atualizar"
+      icon="pi pi-check"
+      class="p-button-text"
+      (click)="atualizarFuncionario(cargoSelecionado)"
+    ></button>
+  </ng-template>
+</p-dialog>
+<!-- DIALOG DE CONFIRMAÇÃO DE EXCLUSÃO -->
+<p-confirmDialog
+  header="Atenção"
+  icon="pi pi-exclamation-triangle"
+  [style]="{ width: '70vw' }"
+  [transitionOptions]="'200ms'"
+  [baseZIndex]="10000"
+  acceptLabel="Sim"
+  rejectLabel="Não"
+  acceptButtonStyleClass="p-button-success"
+  rejectButtonStyleClass="p-button-danger"
+  key="positionDialog"
+  [position]="position"
+></p-confirmDialog>
+<!-- DIALOGS -->
+
+<!-- TABLE -->
+<p-table
+  [value]="funcionarios"
+  [tableStyle]="{ 'min-width': '10rem' }"
+  #dt1
+  [globalFilterFields]="['nome_completo']"
+  [paginator]="true"
+  [rows]="rows"
+  [showCurrentPageReport]="true"
+  currentPageReportTemplate="Pagina {first} de {last} de {totalRecords} dados"
+  [pageLinks]="3"
+  [totalRecords]="totalRecords"
+>
+  <ng-template pTemplate="caption">
+    <div class="flex">
+      <span class="p-input-icon-left ml-auto">
+        <i class="pi pi-search"></i>
+        <input
+          pInputText
+          type="text"
+          (input)="dt1.filterGlobal(getEventValue($event), 'contains')"
+          placeholder="Procurar Funcionário"
+        />
+      </span>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="id_funcionario">
+        ID<p-sortIcon field="id_funcionario"></p-sortIcon>
+      </th>
+      <th pSortableColumn="nome_completo">
+        Nome<p-sortIcon field="nome_completo"></p-sortIcon>
+      </th>
+      <th>Cargo</th>
+      <th>Criado em</th>
+      <th>Ultima Atualização em</th>
+      <th>Editar</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-funcionario>
+    <tr>
+      <td>
+        {{ funcionario.id_funcionario }}
+      </td>
+      <td>
+        <span class="p-column-title">Nome</span>
+        <b>{{ funcionario.nome_completo | uppercase }}</b>
+      </td>
+      <td>
+        {{ funcionario.nome_cargo }}
+      </td>
+      <td>
+        {{ funcionario.criado_em | date : "short" : "UTC-4" : "pt-BR" }}
+      </td>
+      <td>
+        {{ funcionario.atualizado_em | date : "short" : "UTC-4" : "pt-BR" }}
+      </td>
+      <td>
+        <button
+          pButton
+          pRipple
+          pTooltip="Editar Funcionario"
+          tooltipPosition="top"
+          type="button"
+          icon="pi pi-user-edit"
+          class="p-button-rounded p-button-success"
+          [style]="{ 'margin-right': '1rem' }"
+          (click)="dialogAtualizar(funcionario.id_funcionario)"
+        ></button>
+
+        <button
+          pButton
+          pRipple
+          pTooltip="Excluir Funcionario"
+          tooltipPosition="top"
+          type="button"
+          icon="pi pi-trash"
+          class="p-button-rounded p-button-danger"
+          (click)="ConfirmarExclusao(funcionario.id_funcionario, 'bottom')"
+        ></button>
+
+        <!-- (click)="deletarFuncionario(funcionario.id_funcionario)" -->
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td colspan="7">Funcionáro não encontrado.</td>
+    </tr>
+  </ng-template>
+</p-table>
