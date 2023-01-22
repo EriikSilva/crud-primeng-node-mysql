@@ -128,6 +128,7 @@ router.post("/", (req, res, next) => {
       (error, result, field) => {
         conn.release();
         // console.log(req.body.cargo_id);
+        
 
         if (error) {
           return res.status(500).send({
