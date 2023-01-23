@@ -11,9 +11,8 @@
   <a href="https://github.com/EriikSilva"><img src="https://img.shields.io/github/followers/EriikSilva?style=social"></a>
 </div>
 
-
 <br>
-<img src="https://user-images.githubusercontent.com/61124602/213937174-52e3f634-4fbb-486a-a658-416f7055716a.png">
+<img src="https://user-images.githubusercontent.com/61124602/214115024-d0ef37d8-c35f-4301-be17-4c39bf3e118d.png">
 
 
 
@@ -41,9 +40,9 @@ Projeto em andamento que busca criar sistema de inserção de funcionarios, carg
   - Visualizar quando foi criado e qunando foi a ultima atualização
   - Ordenar colunas por ID e nome
   - Sistema de paginação
-- Cargos (Ainda em desenvolvimento)
+- Cargos
+  - Visualizar Cargos
   - Inserir Cargo
-  - Deletar Cargo
 - Resumo (em desenvolvimento)
   - Irá mostrar um gráfico de pizza de funcionarios e cargos
 # 💾 Instalação
