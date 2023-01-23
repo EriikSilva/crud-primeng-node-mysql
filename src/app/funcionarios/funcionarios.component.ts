@@ -62,7 +62,6 @@ export class FuncionariosComponent implements OnInit {
 
     this.cargosService.getCargos().subscribe((res: any) => {
       this.cargos = res.cargos;
-  
     });
  
   }
@@ -132,10 +131,7 @@ export class FuncionariosComponent implements OnInit {
     this.funcionarioForm.value.cargo_id = cargoSelecionado.id;
 
     console.log('form aaqui', this.funcionarioForm.value);
-
-    //NOTA:DA UM JEITO DE ENFIAR ISSO NA OTA TABELA
-    //NOTA: lazy loading e paginator
-
+    
     if (this.funcionarioForm.valid) {
       this.funcionariosService
         .postFuncionario(this.funcionarioForm.value)

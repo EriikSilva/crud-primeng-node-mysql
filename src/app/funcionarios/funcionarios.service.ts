@@ -24,9 +24,9 @@ export class ApiService {
     return this._http.post(`${this.apiUrl}`, data)
   }
 
-  postCargoFuncionario(data:any){
-    return this._http.post(`${this.apiCargoFuncionario}`, data)
-  }
+  // postCargoFuncionario(data:any){
+  //   return this._http.post(`${this.apiCargoFuncionario}`, data)
+  // }
   
   patchFuncionario(data:any, id:any){
     let id_funcionario = id;
