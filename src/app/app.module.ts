@@ -29,6 +29,8 @@ import {DialogModule} from 'primeng/dialog';
 import {ToastModule} from 'primeng/toast';
 import {TooltipModule} from 'primeng/tooltip';
 import {DropdownModule} from 'primeng/dropdown';
+import {CalendarModule} from 'primeng/calendar';
+
 
 import { MessageService } from 'primeng/api';
 
@@ -72,7 +74,8 @@ registerLocaleData(localePT);
     DialogModule,
     ToastModule,
     TooltipModule,
-    DropdownModule
+    DropdownModule,
+    CalendarModule
   
     
    

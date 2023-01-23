@@ -17,14 +17,16 @@ import { CargosService } from '../cargos/cargos.service';
 export class FuncionariosComponent implements OnInit {
   funcionarios: any;
   teste: any;
-  teste2: any;
-  teste3: any[];
+  teste2:any;
+  teste3: any;
   cargoID: any;
   criarFuncionariosDialog: boolean;
   atualizarFuncionarioDialog: boolean;
   deletarFuncionarioDialog: boolean;
   cargoSelecionado = '';
   cargos: any;
+
+  value:Date;
 
   loading: boolean;
   position: string;
@@ -51,16 +53,16 @@ export class FuncionariosComponent implements OnInit {
 
     this.funcionariosService.getFuncionarios().subscribe((res: any) => {
       this.funcionarios = res.funcionarios;
-
-      console.log('LISTA', res.funcionarios);
-
-      // this.totalRecords = res.funcionarios.length;
-
-      // this.loading = true;
+      
+      //pro filtro de data
+      this.funcionarios.forEach(funcionario => funcionario.criado_em = new Date(funcionario.criado_em));
+      this.funcionarios.forEach(funcionario => funcionario.atualizado_em = new Date(funcionario.atualizado_em));
+      this.funcionarios.forEach(funcionario => funcionario.nome_cargo = funcionario.nome_cargo)
     });
 
     this.cargosService.getCargos().subscribe((res: any) => {
       this.cargos = res.cargos;
+  
     });
  
   }

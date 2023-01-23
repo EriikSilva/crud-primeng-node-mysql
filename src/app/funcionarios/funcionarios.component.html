@@ -91,15 +91,15 @@
   <ng-template pTemplate="content" [formGroup]="funcionarioForm">
     <label for="name">Cargo</label>
     <p-dropdown
-    [options]="cargos"
-    [(ngModel)]="cargoSelecionado"
-    [virtualScroll]="true"
-    placeholder="Selecione um cargo"
-    optionLabel="nome_cargo"
-    [formControlName]="'cargo_id'"
-  ></p-dropdown>
+      [options]="cargos"
+      [(ngModel)]="cargoSelecionado"
+      [virtualScroll]="true"
+      placeholder="Selecione um cargo"
+      optionLabel="nome_cargo"
+      [formControlName]="'cargo_id'"
+    ></p-dropdown>
 
-  <p-divider></p-divider>
+    <p-divider></p-divider>
 
     <div class="field">
       <label for="name">Nome Completo</label>
@@ -116,8 +116,6 @@
         >Campo Obrigatorio</small
       >
     </div>
-
- 
   </ng-template>
 
   <ng-template pTemplate="footer">
@@ -190,9 +188,30 @@
       <th pSortableColumn="nome_completo">
         Nome<p-sortIcon field="nome_completo"></p-sortIcon>
       </th>
-      <th>Cargo</th>
-      <th>Criado em</th>
-      <th>Ultima Atualização em</th>
+      <th>
+        Cargo
+        <p-columnFilter
+          type="text"
+          field="nome_cargo"
+          display="menu"
+        ></p-columnFilter>
+      </th>
+      <th>
+        Criado em
+        <p-columnFilter
+          type="date"
+          field="criado_em"
+          display="menu"
+        ></p-columnFilter>
+      </th>
+      <th>
+        Ultima Atualização em
+        <p-columnFilter
+          type="date"
+          field="atualizado_em"
+          display="menu"
+        ></p-columnFilter>
+      </th>
       <th>Editar</th>
     </tr>
   </ng-template>
