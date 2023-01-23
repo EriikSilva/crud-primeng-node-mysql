@@ -30,7 +30,7 @@ import {ToastModule} from 'primeng/toast';
 import {TooltipModule} from 'primeng/tooltip';
 import {DropdownModule} from 'primeng/dropdown';
 import {CalendarModule} from 'primeng/calendar';
-
+import { ChartModule } from 'primeng/chart';
 
 import { MessageService } from 'primeng/api';
 
@@ -42,7 +42,8 @@ import { AreaTesteComponent } from './area-teste/area-teste.component';
 import { registerLocaleData } from '@angular/common';
 import localePT from '@angular/common/locales/pt';
 import { CargosComponent } from './cargos/cargos.component';
-import { CargoFuncionarioComponent } from './cargo-funcionario/cargo-funcionario.component';
+import { EstatisticaComponent } from './estatistica/estatistica.component';
+
 registerLocaleData(localePT);
 
 @NgModule({
@@ -51,7 +52,7 @@ registerLocaleData(localePT);
     FuncionariosComponent,
     AreaTesteComponent,
     CargosComponent,
-    CargoFuncionarioComponent
+    EstatisticaComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +76,8 @@ registerLocaleData(localePT);
     ToastModule,
     TooltipModule,
     DropdownModule,
-    CalendarModule
+    CalendarModule,
+    ChartModule
   
     
    

@@ -10,7 +10,7 @@ export class ApiService {
 
   apiUrl = 'http://localhost:3000/funcionarios/'
   apiCargoFuncionario = 'http://localhost:3000/cargoFuncionario/'
-  // cargosFuncionariosApi = 'http://localhost:3000/cargoFuncionario/'
+
 
   getFuncionarios(){
     return this._http.get(`${this.apiUrl}`)
@@ -24,9 +24,7 @@ export class ApiService {
     return this._http.post(`${this.apiUrl}`, data)
   }
 
-  // postCargoFuncionario(data:any){
-  //   return this._http.post(`${this.apiCargoFuncionario}`, data)
-  // }
+
   
   patchFuncionario(data:any, id:any){
     let id_funcionario = id;
