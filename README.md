@@ -36,18 +36,21 @@ Projeto em andamento que busca criar sistema de inserção de funcionarios, carg
   - Area de teste
   - Cargos
 - Funcionários
+  - Visualizar Funcionários
   - Inserir Funcionário
   - Editar Funcionário
   - Deletar Funcionário
+  - Visualizar quando foi criado e quando foi a última atualização
+  - Ordenar colunas por ID e nome (ordem númerica e ordem alfabetica)
   - Filtrar Funcionário
-  - Visualizar quando foi criado e qunando foi a ultima atualização
-  - Ordenar colunas por ID e nome
+  - Filtar por cargo (ativo, suspenso, demitido e etc)
+  - Filtrar por data (criado em e atualizado em)
   - Sistema de paginação
 - Cargos
   - Visualizar Cargos
   - Inserir Cargo
 - Estatísticas
-  - Irá mostrar um gráfico de pizza de funcionarios e cargos e suas quantidades
+  - Irá mostrar um gráfico de pizza de funcionarios e cargos e suas quantidades em geral
 # 💾 Instalação
 - Necessario Node e Angular
 - Clonar o projeto ```git clone https://github.com/github.com/crud-primeng-node.git```
