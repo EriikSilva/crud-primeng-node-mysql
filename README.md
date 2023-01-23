@@ -41,9 +41,9 @@ Projeto em andamento que busca criar sistema de inserção de funcionarios, carg
   - Visualizar quando foi criado e qunando foi a ultima atualização
   - Ordenar colunas por ID e nome
   - Sistema de paginação
-- Cargos (Ainda em desenvolvimento)
+- Cargos
+  - Visualizar Cargos
   - Inserir Cargo
-  - Deletar Cargo
 - Resumo (em desenvolvimento)
   - Irá mostrar um gráfico de pizza de funcionarios e cargos
 # 💾 Instalação
