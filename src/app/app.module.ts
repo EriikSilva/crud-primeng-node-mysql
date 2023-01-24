@@ -33,6 +33,8 @@ import {CalendarModule} from 'primeng/calendar';
 import { ChartModule } from 'primeng/chart';
 
 import { MessageService } from 'primeng/api';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
 
 
 import { FuncionariosComponent } from './funcionarios/funcionarios.component';
@@ -77,7 +79,9 @@ registerLocaleData(localePT);
     TooltipModule,
     DropdownModule,
     CalendarModule,
-    ChartModule
+    ChartModule,
+    MessagesModule,
+    MessageModule
   
     
    

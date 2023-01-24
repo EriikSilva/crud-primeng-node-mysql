@@ -127,12 +127,13 @@ export class FuncionariosComponent implements OnInit {
   //CRIAR
   inserirFuncionario(cargoSelecionado: any) {
     // console.log(cargoSelecionado.id)
+    console.log('form aaqui', this.funcionarioForm.value);
+
 
     this.funcionarioForm.value.cargo_id = cargoSelecionado.id;
 
-    console.log('form aaqui', this.funcionarioForm.value);
-    
     if (this.funcionarioForm.valid) {
+    
       this.funcionariosService
         .postFuncionario(this.funcionarioForm.value)
         .subscribe((res) => {
@@ -143,19 +144,20 @@ export class FuncionariosComponent implements OnInit {
             summary: 'Sucesso',
             detail: 'Funcionario Inserido Com Sucesso',
           });
-
           // this.funcionarioForm.reset();
           this.hideDialog();
           this.lerFuncionarios();
+         
         });
-    } else {
+    } else if(this.funcionarioForm.invalid || '' || undefined) {
       this.messageService.add({
         key: 'error',
         severity: 'error',
         summary: 'Error ao inserir',
         detail: 'Preencha os campos obrigatorios',
+       
       });
-      this.submitted = true;
+      
     }
   }
 
@@ -169,7 +171,8 @@ export class FuncionariosComponent implements OnInit {
     console.log('form aaqui', this.funcionarioForm.value);
 
     console.log(this.funcionarioForm.value);
-    this.funcionariosService
+    if(this.funcionarioForm.valid){
+      this.funcionariosService
       .patchFuncionario(this.funcionarioForm.value, this.getParamId)
       .subscribe((res: any) => {
         this.messageService.add({
@@ -182,6 +185,10 @@ export class FuncionariosComponent implements OnInit {
         this.lerFuncionarios();
         this.hideDialog();
       });
+
+      this.submitted = true;
+    }
+    
   }
 
   ConfirmarExclusao(id: any, position: string) {

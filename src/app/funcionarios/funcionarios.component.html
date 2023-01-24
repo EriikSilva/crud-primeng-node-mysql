@@ -21,26 +21,30 @@
 <!-- DIALOG DE CRIAÇÃO -->
 <p-dialog
   [(visible)]="criarFuncionariosDialog"
-  [style]="{ width: '500px', height: '450px' }"
+  [style]="{ width: '500px', height: '420px' }"
   header="Criar Funcionário"
   [modal]="true"
   styleClass="p-fluid"
 >
   <ng-template pTemplate="content" [formGroup]="funcionarioForm">
-    <label for="name">Cargo</label>
+
+    
+    <div class="field">
+      <label for="cargo_id">Cargo <span class="p-error">(Obrigatório)</span></label>
     <p-dropdown
       [options]="cargos"
       [(ngModel)]="cargoSelecionado"
       [virtualScroll]="true"
       placeholder="Selecione um cargo"
       optionLabel="nome_cargo"
-      [formControlName]="'cargo_id'"
+      [formControlName]="'cargo_id'"     
+      [required]="true"
     ></p-dropdown>
-
+  </div>
     <p-divider></p-divider>
 
     <div class="field">
-      <label for="name">Nome Completo</label>
+      <label for="nome_completo">Nome Completo <span class="p-error">(Obrigatório)</span></label>
       <input
         style="text-transform: uppercase"
         type="text"
@@ -48,17 +52,10 @@
         pInputText
         id="nome_completo"
         required
-        autofocus
-        minlength="5"
+        minlength="1"
       />
-      <small class="p-error" *ngIf="submitted && !funcionarios.nome_completo"
-        >Campo Obrigatorio</small
-      >
     </div>
-
-    <!-- <small class="p-error" *ngIf="submitted && !cargos.nome_cargo"
-        >Campo Obrigatorio</small
-      > -->
+    
   </ng-template>
 
   <ng-template pTemplate="footer">
@@ -79,17 +76,18 @@
       (click)="inserirFuncionario(cargoSelecionado)"
     ></button>
   </ng-template>
+
 </p-dialog>
 <!-- DIALOG DE ATUALIZAÇÃO -->
 <p-dialog
   [(visible)]="atualizarFuncionarioDialog"
-  [style]="{ width: '450px' }"
+  [style]="{ width: '450px',  height: '420px'  }"
   header="Atualizar Funcionário"
   [modal]="true"
   styleClass="p-fluid"
 >
   <ng-template pTemplate="content" [formGroup]="funcionarioForm">
-    <label for="name">Cargo</label>
+    <label for="nome_cargo">Cargo <span class="p-error">(Obrigatório)</span></label>
     <p-dropdown
       [options]="cargos"
       [(ngModel)]="cargoSelecionado"
@@ -97,12 +95,13 @@
       placeholder="Selecione um cargo"
       optionLabel="nome_cargo"
       [formControlName]="'cargo_id'"
+      [required]="true"
     ></p-dropdown>
-
+  
     <p-divider></p-divider>
 
     <div class="field">
-      <label for="name">Nome Completo</label>
+      <label for="name">Nome Completo <span class="p-error">(Obrigatório)</span></label>
       <input
         style="text-transform: uppercase"
         type="text"
@@ -112,9 +111,7 @@
         required
         autofocus
       />
-      <small class="p-error" *ngIf="submitted && !funcionarios.nome_completo"
-        >Campo Obrigatorio</small
-      >
+    
     </div>
   </ng-template>
 
