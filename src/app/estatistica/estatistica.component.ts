@@ -43,6 +43,7 @@ export class EstatisticaComponent implements OnInit {
         return dados.nome_cargo == 'Suspenso';
       });
 
+  
 
 
       // console.log(this.qtdAtivo.length);
