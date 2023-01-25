@@ -43,7 +43,7 @@ Projeto em andamento que busca criar sistema de inserção de funcionarios, carg
   - Visualizar Cargos
   - Inserir Cargo
 - Estatísticas
-  - Irá mostrar um gráfico de pizza de funcionarios e cargos e suas quantidades em geral
+  - Irá mostrar um gráfico de pizza de cargos e suas quantidades em geral
 # 💾 Instalação
 - Necessario Node e Angular
 - Clonar o projeto ```git clone https://github.com/github.com/crud-primeng-node.git```
