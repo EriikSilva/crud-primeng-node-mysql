@@ -45,6 +45,7 @@ import { registerLocaleData } from '@angular/common';
 import localePT from '@angular/common/locales/pt';
 import { CargosComponent } from './cargos/cargos.component';
 import { EstatisticaComponent } from './estatistica/estatistica.component';
+import { PaginaIncialComponent } from './pagina-incial/pagina-incial.component';
 
 registerLocaleData(localePT);
 
@@ -54,7 +55,8 @@ registerLocaleData(localePT);
     FuncionariosComponent,
     AreaTesteComponent,
     CargosComponent,
-    EstatisticaComponent
+    EstatisticaComponent,
+    PaginaIncialComponent
   ],
   imports: [
     BrowserModule,

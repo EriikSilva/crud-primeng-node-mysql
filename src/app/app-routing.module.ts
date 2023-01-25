@@ -4,8 +4,13 @@ import { AreaTesteComponent } from './area-teste/area-teste.component';
 import { CargosComponent } from './cargos/cargos.component';
 import { EstatisticaComponent } from './estatistica/estatistica.component';
 import { FuncionariosComponent } from './funcionarios/funcionarios.component';
+import { PaginaIncialComponent } from './pagina-incial/pagina-incial.component';
 
 const routes: Routes = [
+  {
+    path:'',
+    component:PaginaIncialComponent
+  },
   {
     path:'funcionarios',
     component:FuncionariosComponent

@@ -1,0 +1,38 @@
+<div
+  class="flex justify-content-center align-items-stretch"
+  [style]="{ 'margin-top': '8em' }"
+>
+  <p-card
+    header="Funcionários"
+    [style]="{ width: '25rem', 'margin-bottom': '2em', 'margin-right': '2em' }"
+    routerLink="/funcionarios"
+  >
+    <ng-template pTemplate="header">
+      <img alt="Card" src="assets/funcionarios.jpg" />
+    </ng-template>
+  </p-card>
+
+  <p-card
+    header="Cargos"
+    [style]="{ width: '25rem', 'margin-bottom': '2em', 'margin-right': '2em' }"
+    routerLink="/cargos"
+  >
+    <ng-template pTemplate="header">
+      <img alt="Card" src="assets/cargos.jpg"/>
+    </ng-template>
+  </p-card>
+
+  <p-card
+    header="Estatísticas"
+    [style]="{ width: '25rem', 'margin-bottom': '2em' }"
+    routerLink="/estatistica"
+  >
+    <ng-template pTemplate="header">
+      <img
+        alt="Card"
+        src="assets/estatisticas.jpg"
+       
+      />
+    </ng-template>
+  </p-card>
+</div>
