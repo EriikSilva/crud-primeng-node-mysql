@@ -17,7 +17,7 @@ import { CargosService } from '../cargos/cargos.service';
 export class FuncionariosComponent implements OnInit {
   funcionarios: any;
   teste: any;
-  teste2:any;
+  teste2: any;
   teste3: any;
   cargoID: any;
   criarFuncionariosDialog: boolean;
@@ -26,7 +26,7 @@ export class FuncionariosComponent implements OnInit {
   cargoSelecionado = '';
   cargos: any;
 
-  value:Date;
+  value: Date;
 
   loading: boolean;
   position: string;
@@ -36,7 +36,7 @@ export class FuncionariosComponent implements OnInit {
   first = 0;
   last: number;
   totalRecords: number;
-  rows = 5;
+  rows = 6;
 
   submitted: boolean = false;
 
@@ -53,17 +53,24 @@ export class FuncionariosComponent implements OnInit {
 
     this.funcionariosService.getFuncionarios().subscribe((res: any) => {
       this.funcionarios = res.funcionarios;
-      
+
       //pro filtro de data
-      this.funcionarios.forEach(funcionario => funcionario.criado_em = new Date(funcionario.criado_em));
-      this.funcionarios.forEach(funcionario => funcionario.atualizado_em = new Date(funcionario.atualizado_em));
-      this.funcionarios.forEach(funcionario => funcionario.nome_cargo = funcionario.nome_cargo)
+      this.funcionarios.forEach(
+        (funcionario) =>
+          (funcionario.criado_em = new Date(funcionario.criado_em))
+      );
+      this.funcionarios.forEach(
+        (funcionario) =>
+          (funcionario.atualizado_em = new Date(funcionario.atualizado_em))
+      );
+      this.funcionarios.forEach(
+        (funcionario) => (funcionario.nome_cargo = funcionario.nome_cargo)
+      );
     });
 
     this.cargosService.getCargos().subscribe((res: any) => {
       this.cargos = res.cargos;
     });
- 
   }
 
   next() {
@@ -76,7 +83,8 @@ export class FuncionariosComponent implements OnInit {
 
   isLastPage(): boolean {
     return this.funcionarios
-      ? this.first === this.funcionarios.length - this.rows : true;
+      ? this.first === this.funcionarios.length - this.rows
+      : true;
   }
   isFirstPage(): boolean {
     return this.funcionarios ? this.first === 0 : true;
@@ -116,10 +124,9 @@ export class FuncionariosComponent implements OnInit {
     this.funcionariosService
       .get1Funcionario(this.getParamId)
       .subscribe((res: any) => {
-        console.log('AQUI OH',res)
+        console.log('AQUI OH', res);
         this.funcionarioForm.patchValue({
-          nome_completo: res.funcionario.nome_completo,   
-   
+          nome_completo: res.funcionario.nome_completo,
         });
       });
   }
@@ -129,11 +136,9 @@ export class FuncionariosComponent implements OnInit {
     // console.log(cargoSelecionado.id)
     console.log('form aaqui', this.funcionarioForm.value);
 
-
     this.funcionarioForm.value.cargo_id = cargoSelecionado.id;
 
     if (this.funcionarioForm.valid) {
-    
       this.funcionariosService
         .postFuncionario(this.funcionarioForm.value)
         .subscribe((res) => {
@@ -147,22 +152,19 @@ export class FuncionariosComponent implements OnInit {
           // this.funcionarioForm.reset();
           this.hideDialog();
           this.lerFuncionarios();
-         
         });
-    } else if(this.funcionarioForm.invalid || '' || undefined) {
+    } else if (this.funcionarioForm.invalid || '' || undefined) {
       this.messageService.add({
         key: 'error',
         severity: 'error',
         summary: 'Error ao inserir',
         detail: 'Preencha os campos obrigatorios',
-       
       });
-      
     }
   }
 
   //ATUALIZAR FUNCIONARIO
-  atualizarFuncionario(cargoSelecionado:any) {
+  atualizarFuncionario(cargoSelecionado: any) {
     // console.log("@@",this.router.snapshot.paramMap.get('id_funcionario'), 'getid');
     // console.log('FUNCIONOU?', this.getParamId);
 
@@ -171,24 +173,23 @@ export class FuncionariosComponent implements OnInit {
     console.log('form aaqui', this.funcionarioForm.value);
 
     console.log(this.funcionarioForm.value);
-    if(this.funcionarioForm.valid){
+    if (this.funcionarioForm.valid) {
       this.funcionariosService
-      .patchFuncionario(this.funcionarioForm.value, this.getParamId)
-      .subscribe((res: any) => {
-        this.messageService.add({
-          key: 'funcionarioAtualizado',
-          severity: 'success',
-          summary: 'Usuario Atualizado',
-          detail: 'O usuario foi atualizado com sucesso',
-        });
+        .patchFuncionario(this.funcionarioForm.value, this.getParamId)
+        .subscribe((res: any) => {
+          this.messageService.add({
+            key: 'funcionarioAtualizado',
+            severity: 'success',
+            summary: 'Usuario Atualizado',
+            detail: 'O usuario foi atualizado com sucesso',
+          });
 
-        this.lerFuncionarios();
-        this.hideDialog();
-      });
+          this.lerFuncionarios();
+          this.hideDialog();
+        });
 
       this.submitted = true;
     }
-    
   }
 
   ConfirmarExclusao(id: any, position: string) {

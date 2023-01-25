@@ -128,7 +128,6 @@ router.post("/", (req, res, next) => {
       (error, result, field) => {
         conn.release();
         // console.log(req.body.cargo_id);
-        
 
         if (error) {
           return res.status(500).send({
@@ -191,7 +190,7 @@ router.patch("/:id_funcionario", (req, res, next) => {
         }
         res.status(201).send({
           message: "FUNCIONARIO ATUALIZADO COM SUCESSO",
-          resultado: field
+          resultado: field,
         });
       }
     );

@@ -4,7 +4,6 @@ const mysql = require("../mysql").pool;
 
 router.get("/", (req, res, next) => {
   mysql.getConnection((error, conn) => {
-    
     if (error) {
       return res.status(500).send({
         error: error,
@@ -41,10 +40,8 @@ router.get("/", (req, res, next) => {
   });
 });
 
-
 router.get("/:id", (req, res, next) => {
   mysql.getConnection((error, conn) => {
-    
     if (error) {
       return res.status(500).send({
         error: error,
@@ -81,45 +78,41 @@ router.get("/:id", (req, res, next) => {
   });
 });
 
-
-
 router.post("/", (req, res, next) => {
-    mysql.getConnection((error, conn) => {
-      if (error) {
-        return res.status(500).send({
-          error: error,
-        });
-      }
-      conn.query(
-        "INSERT INTO cargo (nome_cargo) VALUES (?)",
-        [req.body.nome_cargo],
-        (error, result, field) => {
-          conn.release();
-  
-          if (error) {
-            return res.status(500).send({
-              error: error,
-              response: null,
-            });
-          }
-  
-          const response = {
-            cargoCriado: {
-              message: "CARGO INSERIDO COM SUCESSO",
-              nome_cargo: req.body.nome_cargo,
-              request: {
-                tipo: "POST",
-                url: "http://localhost:3000/cargos/",
-              },
-            },
-          };
-  
-          res.status(201).send(response);
+  mysql.getConnection((error, conn) => {
+    if (error) {
+      return res.status(500).send({
+        error: error,
+      });
+    }
+    conn.query(
+      "INSERT INTO cargo (nome_cargo) VALUES (?)",
+      [req.body.nome_cargo],
+      (error, result, field) => {
+        conn.release();
+
+        if (error) {
+          return res.status(500).send({
+            error: error,
+            response: null,
+          });
         }
-      );
-    });
+
+        const response = {
+          cargoCriado: {
+            message: "CARGO INSERIDO COM SUCESSO",
+            nome_cargo: req.body.nome_cargo,
+            request: {
+              tipo: "POST",
+              url: "http://localhost:3000/cargos/",
+            },
+          },
+        };
+
+        res.status(201).send(response);
+      }
+    );
   });
-
-
+});
 
 module.exports = router;

@@ -82,9 +82,6 @@ registerLocaleData(localePT);
     ChartModule,
     MessagesModule,
     MessageModule
-  
-    
-   
   ],
   providers: [ConfirmationService, MessageService],
   bootstrap: [AppComponent]

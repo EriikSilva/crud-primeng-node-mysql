@@ -15,9 +15,9 @@ export class EstatisticaComponent implements OnInit {
   teste: any;
 
   qtdFuncionarios: any;
-  qtdAtivo: any;
-  qtdDemitidos:any;
-  qtdSuspensos:any;
+  qtdDesenvolvedor: any;
+  qtdAnalista:any;
+  qtdTester:any;
   subscription: Subscription;
 
   config: ApplicationConfig;
@@ -29,22 +29,19 @@ export class EstatisticaComponent implements OnInit {
       // console.log('q',res.funcionarios)
       this.dados = res.funcionarios;
 
-      this.qtdFuncionarios = Object.keys(this.dados).length;
+      // this.qtdFuncionarios = Object.keys(this.dados).length;
 
-      this.qtdAtivo = this.dados.filter((dados) => {
-        return dados.nome_cargo == 'Ativo';
+      this.qtdAnalista = this.dados.filter((dados) => {
+        return dados.nome_cargo ==='Analista';
       });
 
-      this.qtdDemitidos = this.dados.filter((dados) => {
-        return dados.nome_cargo == 'Demitido';
+      this.qtdDesenvolvedor = this.dados.filter((dados) => {
+        return dados.nome_cargo === 'Desenvolvedor';
       });
 
-      this.qtdSuspensos = this.dados.filter((dados) => {
-        return dados.nome_cargo == 'Suspenso';
+      this.qtdTester = this.dados.filter((dados) => {
+        return dados.nome_cargo ===  'Tester';
       });
-
-  
-
 
       // console.log(this.qtdAtivo.length);
 
@@ -52,17 +49,17 @@ export class EstatisticaComponent implements OnInit {
       // console.log('filtrou,',Object.keys(res))
 
       this.data = {
-        labels: ['Funcionarios',  'Ativos','Suspensos','Demitidos' ],
+        labels: ['Analista','Desenvolvedor','Tester' ],
         datasets: [
           {
             data: [
-              this.qtdFuncionarios,
-              this.qtdAtivo.length,  
-              this.qtdSuspensos.length,
-              this.qtdDemitidos.length,  
+              // this.qtdFuncionarios,
+              this.qtdAnalista.length,  
+              this.qtdDesenvolvedor.length,
+              this.qtdTester.length,  
               ],
-            backgroundColor: ['#260ecf','#289609', '#deda09', '#d90f0f'],
-            hoverBackgroundColor: ['#260ecf', '#289609', '#deda09','#d90f0f'],
+            backgroundColor: ['#289609', '#deda09', '#d90f0f'],
+            hoverBackgroundColor: ['#289609', '#deda09','#d90f0f'],
           },
         ],
       };
