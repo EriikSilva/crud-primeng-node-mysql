@@ -34,9 +34,9 @@ CREATE TABLE `cargo` (
 ) 
 
 INSERT INTO `cargo` (`id`, `nome_cargo`) VALUES
-(1, 'Ativo'),
-(2, 'Demitido'),
-(3, 'Suspenso');
+(1, 'Analista'),
+(2, 'Desenvolvedor'),
+(3, 'Tester');
 
 
 
