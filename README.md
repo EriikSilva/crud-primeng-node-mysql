@@ -56,6 +56,8 @@ Projeto em andamento que busca criar sistema de inserção de funcionarios, carg
 
 <br>
 <h2>Página Inicial<h2>
+<img src="https://user-images.githubusercontent.com/61124602/214475742-8a7a8639-fcee-4c14-95e0-a6cca6f66e50.png">
+<br>
 <h2>AINDA EM DESENVOLVIMENTO<h2>
 <br>
 <h2>Funcionários<h2>
