@@ -48,9 +48,9 @@ Projeto em andamento que busca criar sistema de inserção de funcionarios, carg
 - Necessario Node e Angular
 - Clonar o projeto ```git clone https://github.com/github.com/crud-primeng-node.git```
 - Rodar o comando pelo cmd na pasta do projeto ```npm install```
-- Para rodar o back-end é necessario criar uma database com o nome ```crud``` no mysql workbench ou phpmyadmin e copiar os dados    que estão na pasta raiz chamada <b>crud.sql</b>
-- Rodar o front com o terminal <b>ng serve</b>
-- Entrar com o terminal na pasta <b>back</b> e rodar o comando  <b>nodemon server.js</b> 
+- Para rodar o back-end é necessario criar uma database com o nome ```crud``` no mysql workbench ou phpmyadmin e copiar os dados    que estão na pasta raiz chamada ```crud.sql```
+- Entrar na pastar ```back``` e rodar o comando no terminal ```nodemon server.js```
+- Rodar o front com o terminal ```ng serve``` e aceessar ```http://localhost:4200``` :)
 
 
 
