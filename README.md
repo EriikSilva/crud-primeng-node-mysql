@@ -14,7 +14,7 @@
 
 
 # 💬 Sobre
-Projeto em andamento que busca criar sistema de inserção de funcionarios, cargos e estatisticas.
+Projeto que busca criar sistema de inserção de funcionarios, cargos e estatisticas.
 <br>
 - Front-end:angular com primeng.
 - Back-end:node com express e mysql.
