@@ -5,7 +5,7 @@
   <a href="https://github.com/EriikSilva/crud-primeng-node"><img alt="hits" src="https://hits.sh/github.com/EriikSilva/crud-primeng-node.svg"></a>
   <a href="https://github.com/EriikSilva/crud-primeng-node/graphs/commit-activity"><img src="https://img.shields.io/github/last-commit/EriikSilva/crud-primeng-node"></a>
   <a href="https://github.com/EriikSilva/crud-primeng-node"><img src="https://img.shields.io/badge/
-  -In%20Progress-yellow"></a>
+  -InProgress-yellow"></a>
   <a href="https://github.com/EriikSilva/crud-primeng-node/stargazers"><img src="https://img.shields.io/github/stars/EriikSilva/crud-primeng-node?style=social"></a>
   <a href="https://github.com/EriikSilva/crud-primeng-node/network/members"><img src="https://img.shields.io/github/forks/EriikSilva/crud-primeng-node?style=social"></a>
   <a href="https://github.com/EriikSilva"><img src="https://img.shields.io/github/followers/EriikSilva?style=social"></a>
